@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
-import Filter from './Filter/Filter';
-import ContactForm from './ContactForm/ContactForm';
-import ContactsList from './ContactList/ContactList';
+import Notiflix from 'notiflix';
+import Filter from './components/Filter/Filter';
+import ContactForm from './components/ContactForm/ContactForm';
+import ContactsList from './components/ContactList/ContactList';
 import { AppWrapper, Title } from './App.styled';
 
 class App extends Component {
@@ -38,7 +39,7 @@ class App extends Component {
         contact => contact.name.toLowerCase() === name.toLowerCase(),
       )
     ) {
-      alert(`${name} is already in contacts`);
+      Notiflix.Notify.warning(`${name} is already in contacts`);
     } else {
       this.setState(prevState => ({
         contacts: [...prevState.contacts, contact],

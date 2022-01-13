@@ -21,8 +21,9 @@ class App extends Component {
 
   renderContacts = () => {
     const { contacts, filter } = this.state;
+    const normalizeFilter = filter.toLowerCase();
     return contacts.filter(contacts =>
-      contacts.name.toLowerCase().includes(filter.toLowerCase()),
+      contacts.name.toLowerCase().includes(normalizeFilter),
     );
   };
   addContact = ({ name, number }) => {
